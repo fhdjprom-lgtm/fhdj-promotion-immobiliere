@@ -72,8 +72,12 @@
           </article>
 
           <article class="bg-black rounded-3xl overflow-hidden border border-zinc-800">
-            <div class="h-56 bg-zinc-900 flex items-center justify-center">
-              <p class="text-yellow-500 text-2xl font-bold">FancyHome 2</p>
+            <div class="h-56 bg-zinc-900">
+              <img
+                src="images/fancyhome2.jpg"
+                alt="Facade de FancyHome 2"
+                class="w-full h-full object-cover"
+              />
             </div>
             <div class="p-6">
               <span class="bg-yellow-500 text-black text-xs px-3 py-1 rounded-full">Livré</span>
@@ -138,17 +142,49 @@
           <div class="bg-black border border-zinc-800 rounded-3xl p-8 text-left">
             <div class="space-y-4">
               <div class="bg-zinc-900 p-4 rounded-2xl w-fit">
-                Bonjour, quels appartements sont disponibles ?
+                Bonjour, voici les appartements actuellement disponibles.
               </div>
               <div class="bg-yellow-500 text-black p-4 rounded-2xl ml-auto w-fit">
-                Nous avons des F3 et F4 disponibles à Oran.
+                Selectionnez le type qui vous interesse, puis contactez-nous pour plus de details.
               </div>
+            </div>
+
+            <div class="mt-8 grid gap-5 md:grid-cols-3">
+              <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+                <p class="text-yellow-500 text-sm font-semibold">Disponible</p>
+                <h3 class="text-2xl font-bold mt-2">Appartement F3</h3>
+                <p class="text-zinc-400 mt-3">Superficie : 95 m2</p>
+                <p class="text-zinc-400 mt-2">Ideal pour une petite famille.</p>
+              </div>
+
+              <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+                <p class="text-yellow-500 text-sm font-semibold">Disponible</p>
+                <h3 class="text-2xl font-bold mt-2">Appartement F4</h3>
+                <p class="text-zinc-400 mt-3">Superficie : 120 m2</p>
+                <p class="text-zinc-400 mt-2">Espace confortable et moderne.</p>
+              </div>
+
+              <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+                <p class="text-yellow-500 text-sm font-semibold">Reservation ouverte</p>
+                <h3 class="text-2xl font-bold mt-2">Appartement Luxe</h3>
+                <p class="text-zinc-400 mt-3">Superficie : 150 m2</p>
+                <p class="text-zinc-400 mt-2">Finition haut de gamme.</p>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+              <a href="#contact" class="bg-yellow-500 text-black text-center px-6 py-4 rounded-2xl font-semibold">
+                Demander plus d'informations
+              </a>
+              <a href="mailto:fhdjprom@gmail.com?subject=Appartement%20disponible%20FHDJ" class="border border-yellow-500 text-yellow-500 text-center px-6 py-4 rounded-2xl font-semibold">
+                Envoyer un email
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="px-8 py-20">
+      <section id="contact" class="px-8 py-20">
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
           <div>
             <h2 class="text-4xl font-bold text-yellow-500 mb-6">Contact</h2>
