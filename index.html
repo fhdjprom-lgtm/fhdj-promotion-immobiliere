@@ -67,7 +67,12 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <article class="bg-black rounded-3xl overflow-hidden border border-zinc-800">
+          <article
+            class="project-card bg-black rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer transition hover:-translate-y-1 hover:border-yellow-500"
+            data-project="fancyhome1"
+            role="button"
+            tabindex="0"
+          >
             <div class="h-56 bg-zinc-900 flex items-center justify-center">
               <p class="text-yellow-500 text-2xl font-bold">FancyHome 1</p>
             </div>
@@ -78,7 +83,12 @@
             </div>
           </article>
 
-          <article class="bg-black rounded-3xl overflow-hidden border border-zinc-800">
+          <article
+            class="project-card bg-black rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer transition hover:-translate-y-1 hover:border-yellow-500"
+            data-project="fancyhome2"
+            role="button"
+            tabindex="0"
+          >
             <div class="h-56 bg-zinc-900">
               <img
                 src="images/fancyhome2.jpg"
@@ -93,7 +103,12 @@
             </div>
           </article>
 
-          <article class="bg-black rounded-3xl overflow-hidden border border-zinc-800">
+          <article
+            class="project-card bg-black rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer transition hover:-translate-y-1 hover:border-yellow-500"
+            data-project="fancyhome3"
+            role="button"
+            tabindex="0"
+          >
             <div class="h-56 bg-zinc-900 flex items-center justify-center">
               <p class="text-yellow-500 text-2xl font-bold">FancyHome 3</p>
             </div>
@@ -104,7 +119,12 @@
             </div>
           </article>
 
-          <article class="bg-black rounded-3xl overflow-hidden border border-zinc-800">
+          <article
+            class="project-card bg-black rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer transition hover:-translate-y-1 hover:border-yellow-500"
+            data-project="fancyhome4"
+            role="button"
+            tabindex="0"
+          >
             <div class="h-56 bg-zinc-900 flex items-center justify-center">
               <p class="text-yellow-500 text-2xl font-bold">FancyHome 4</p>
             </div>
@@ -223,9 +243,152 @@
         </div>
       </section>
 
+      <div
+        id="project-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 px-4 py-8"
+      >
+        <div class="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-zinc-800 bg-black">
+          <div class="flex items-center justify-between border-b border-zinc-800 px-6 py-5">
+            <div>
+              <p id="modal-status" class="text-sm font-semibold text-yellow-500"></p>
+              <h2 id="modal-title" class="text-3xl font-bold"></h2>
+            </div>
+            <button
+              id="modal-close"
+              class="rounded-full border border-zinc-700 px-4 py-2 text-sm text-zinc-300 hover:border-yellow-500 hover:text-yellow-500"
+              type="button"
+            >
+              Fermer
+            </button>
+          </div>
+
+          <div class="grid gap-6 p-6 md:grid-cols-[1.2fr_0.8fr]">
+            <div id="modal-media" class="min-h-80 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900"></div>
+
+            <div class="space-y-5">
+              <div>
+                <h3 class="text-xl font-bold text-yellow-500">Presentation</h3>
+                <p id="modal-description" class="mt-3 text-zinc-300 leading-relaxed"></p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-bold text-yellow-500">Emplacement</h3>
+                <p id="modal-location" class="mt-3 text-zinc-300"></p>
+              </div>
+
+              <a
+                id="modal-map"
+                href="https://maps.app.goo.gl/jh2nV2AQv4z4Mhik8"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex w-full justify-center rounded-2xl bg-yellow-500 px-6 py-4 font-semibold text-black"
+              >
+                Voir l'emplacement du projet
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <footer class="border-t border-zinc-800 py-8 text-center text-zinc-500">
         © 2022 EURL FHDJ Promotion Immobilière
       </footer>
     </main>
+    <script>
+      const projectDetails = {
+        fancyhome1: {
+          title: "FancyHome 1",
+          status: "Livre",
+          description:
+            "Residence moderne haut de gamme a Oran. Le projet est termine et presente un cadre residentiel confortable.",
+          location: "Oran, Algerie",
+          map: "https://maps.app.goo.gl/jh2nV2AQv4z4Mhik8",
+          media: "",
+        },
+        fancyhome2: {
+          title: "FancyHome 2",
+          status: "Livre",
+          description:
+            "Residence moderne haut de gamme a Oran avec une facade elegante et une finition soignee.",
+          location: "Oran, Algerie",
+          map: "https://maps.app.goo.gl/jh2nV2AQv4z4Mhik8",
+          media: "images/fancyhome2.jpg",
+        },
+        fancyhome3: {
+          title: "FancyHome 3",
+          status: "Livre",
+          description:
+            "Projet termine a Oran. Aucun appartement n'est disponible pour le moment.",
+          location: "Oran, Algerie",
+          map: "https://maps.app.goo.gl/jh2nV2AQv4z4Mhik8",
+          media: "",
+        },
+        fancyhome4: {
+          title: "FancyHome 4",
+          status: "Pas encore commence",
+          description:
+            "Futur projet de duplex a Oran. Le projet n'a pas encore commence.",
+          location: "Oran, Algerie",
+          map: "https://maps.app.goo.gl/jh2nV2AQv4z4Mhik8",
+          media: "",
+        },
+      };
+
+      const modal = document.getElementById("project-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalStatus = document.getElementById("modal-status");
+      const modalDescription = document.getElementById("modal-description");
+      const modalLocation = document.getElementById("modal-location");
+      const modalMap = document.getElementById("modal-map");
+      const modalMedia = document.getElementById("modal-media");
+      const closeModal = document.getElementById("modal-close");
+
+      function openProject(projectKey) {
+        const project = projectDetails[projectKey];
+        if (!project) return;
+
+        modalTitle.textContent = project.title;
+        modalStatus.textContent = project.status;
+        modalDescription.textContent = project.description;
+        modalLocation.textContent = project.location;
+        modalMap.href = project.map;
+
+        if (project.media) {
+          modalMedia.innerHTML = `<img src="${project.media}" alt="${project.title}" class="h-full min-h-80 w-full object-cover" />`;
+        } else {
+          modalMedia.innerHTML = `
+            <div class="flex min-h-80 h-full items-center justify-center p-8 text-center">
+              <p class="text-2xl font-bold text-yellow-500">Photo ou video a ajouter</p>
+            </div>
+          `;
+        }
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function hideProject() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => openProject(card.dataset.project));
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openProject(card.dataset.project);
+          }
+        });
+      });
+
+      closeModal.addEventListener("click", hideProject);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) hideProject();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") hideProject();
+      });
+    </script>
   </body>
 </html>
